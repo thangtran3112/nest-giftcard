@@ -1,2 +1,4 @@
 api
 bin
+cdk.out
+dist

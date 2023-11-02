@@ -1,5 +1,5 @@
 ## Tutorials
-* Node 20X
+* Node 18X
 * [CDK and NestJs app](https://medium.com/nextfaze/deploying-serverless-api-with-nestjs-and-aws-cdk-3d41063543e0) and [Git link](https://github.com/NextFaze/awesome-serverless-api)
 * [CDK Api gateway Lambda Dynamo](https://conermurphy.com/blog/build-rest-api-aws-cdk-api-gateway-lambda-dynamodb-api-key-authentication) and [Git link](https://github.com/conermurphy/cdk-tutorials/tree/main/rest-api-with-api-key-auth)
 
@@ -7,6 +7,8 @@
 * `npx cdk init --language typescript`
 * `npx npm-check-updates -u`
 * `nest new api --skip-git`
+* Adding your credentials to environment variables through `aws configure`
+* Or `ada credentials update --account=954139009987 --provider=conduit --role=IibsAdminAccess-DO-NOT-DELETE --once`
 
 ## CDK Useful commands
 * The `cdk.json` file tells the CDK Toolkit how to execute your app.
