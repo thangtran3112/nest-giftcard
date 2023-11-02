@@ -1,14 +1,15 @@
-# Tutorials
+## Tutorials
+* Node 20X
 * [CDK and NestJs app](https://medium.com/nextfaze/deploying-serverless-api-with-nestjs-and-aws-cdk-3d41063543e0) and [Git link](https://github.com/NextFaze/awesome-serverless-api)
 * [CDK Api gateway Lambda Dynamo](https://conermurphy.com/blog/build-rest-api-aws-cdk-api-gateway-lambda-dynamodb-api-key-authentication) and [Git link](https://github.com/conermurphy/cdk-tutorials/tree/main/rest-api-with-api-key-auth)
-# Welcome to your CDK TypeScript project
 
-This is a blank project for CDK development with TypeScript.
+## Initialize steps
+* `npx cdk init --language typescript`
+* `npx npm-check-updates -u`
+* `nest new api --skip-git`
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
-
-## Useful commands
-
+## CDK Useful commands
+* The `cdk.json` file tells the CDK Toolkit how to execute your app.
 * `npm run build`   compile typescript to js
 * `npm run watch`   watch for changes and compile
 * `npm run test`    perform the jest unit tests
