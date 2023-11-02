@@ -1,16 +1,20 @@
 import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
-// import * as sqs from 'aws-cdk-lib/aws-sqs';
+import { ApiConstruct } from './api.construct';
+import { Cognito } from './cognito-construct';
 
-export class NestGiftcardStack extends cdk.Stack {
+export default class NestGiftcardStack extends cdk.Stack {
+  // Apply default config here
+  config = { hostedAuthDomainPrefix: `my-auth-1591780305` };
+
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    // The code that defines your stack goes here
-
-    // example resource
-    // const queue = new sqs.Queue(this, 'NestGiftcardQueue', {
-    //   visibilityTimeout: cdk.Duration.seconds(300)
-    // });
+    const cognitoResources = new Cognito(this, 'Cognito', {
+      hostedAuthDomainPrefix: this.config.hostedAuthDomainPrefix,
+    });
+    new ApiConstruct(this, 'ApiConstruct', {
+      userPool: cognitoResources.userPool,
+    });
   }
 }
