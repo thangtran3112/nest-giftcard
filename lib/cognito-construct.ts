@@ -1,6 +1,7 @@
 import { IUserPool, OAuthScope, UserPool, UserPoolClient, UserPoolClientIdentityProvider, UserPoolDomain } from "aws-cdk-lib/aws-cognito";
 import { Construct } from "constructs";
 
+// this will be used to create unique auth domain hosted on `auth.ap-southeast-2.amazoncognito.com` for example.
 interface CognitoProps {
   hostedAuthDomainPrefix: string;
 }
@@ -8,10 +9,7 @@ interface CognitoProps {
 /**
  * @description This Construct creates all the resources required to enable
  * oauth based authentication
- *
- *
- * We are using some of the not recommended approaches here
- * just to keep the code simple and easy to understand.
+ * see more details here: https://medium.com/nextfaze/deploying-serverless-api-with-nestjs-and-aws-cdk-3d41063543e0
  */
 export class Cognito extends Construct {
   readonly userPool: IUserPool;
@@ -67,6 +65,7 @@ export class Cognito extends Construct {
     });
 
     // configure cognito hosted OAuth 2.0 server
+    //https://medium.com/nextfaze/deploying-serverless-api-with-nestjs-and-aws-cdk-3d41063543e0
     const userPoolDomain = new UserPoolDomain(this, 'UserPoolDomain', {
       userPool: this.userPool,
       cognitoDomain: {
