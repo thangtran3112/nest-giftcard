@@ -10,12 +10,16 @@
 * Adding your credentials to environment variables through `aws configure`
 * Or `ada credentials update --account=954139009987 --provider=conduit --role=IibsAdminAccess-DO-NOT-DELETE --once`
 
-## CDK Useful commands
+## CDK Commands
 * The `cdk.json` file tells the CDK Toolkit how to execute your app.
-* `npm run build`   compile typescript to js
+* Run `npm run build` to clean up /dist, compile to Js files and synth cdk
+* Run `cdk synth` to emits the synthesized CloudFormation template
+* CDK will use ts-node to synthesize TS codes directly into cdk.out templates. See cdk.json
+```
+  "app": "npx ts-node --prefer-ts-exts bin/nest-giftcard.ts",
+```
 * `npm run watch`   watch for changes and compile
 * `npm run test`    perform the jest unit tests
 * `cdk deploy`      deploy this stack to your default AWS account/region
 * `cdk diff`        compare deployed stack with current state
-* `cdk synth`       emits the synthesized CloudFormation template
 
