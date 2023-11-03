@@ -1,6 +1,7 @@
 ## Tutorials
 * Node 18X
 * [CDK and NestJs app](https://medium.com/nextfaze/deploying-serverless-api-with-nestjs-and-aws-cdk-3d41063543e0) and [Git link](https://github.com/NextFaze/awesome-serverless-api)
+* [Nest and Serverless](https://blog.logrocket.com/nest-js-serverless-application-aws-dynamodb/)
 * [APGW with hosted Cognito Zone](https://medium.com/@michael.leigh.stewart/securing-an-api-with-aws-cdk-api-gateway-and-cognito-cee9158a2ddb)
 * [CDK Api gateway Lambda Dynamo](https://conermurphy.com/blog/build-rest-api-aws-cdk-api-gateway-lambda-dynamodb-api-key-authentication) and [Git link](https://github.com/conermurphy/cdk-tutorials/tree/main/rest-api-with-api-key-auth)
 
