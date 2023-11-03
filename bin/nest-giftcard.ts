@@ -8,8 +8,7 @@ const app = new cdk.App();
 
 // nano ~/.zshrc or supply .env files
 new NestGiftcardStack(app, 'NestGiftcardStack', {
-  env: { account: '954139009987', region: 'us-east-1' }
-  //env: { account: AWS_ACCOUNT, region: AWS_REGION }
+  env: { account: AWS_ACCOUNT, region: AWS_REGION }
   
   /* If you don't specify 'env', this stack will be environment-agnostic.
    * Account/Region-dependent features and context lookups will not work,

@@ -2,6 +2,7 @@ import {
   AuthorizationType,
   CfnAuthorizer,
   CfnMethod,
+  Cors,
   LambdaIntegration,
   RestApi,
 } from 'aws-cdk-lib/aws-apigateway';
@@ -11,6 +12,7 @@ import { Code, Function, LayerVersion, Runtime } from 'aws-cdk-lib/aws-lambda';
 import { RetentionDays } from 'aws-cdk-lib/aws-logs';
 import { Construct } from 'constructs';
 import { resolve } from 'path';
+import { TABLE_NAME } from '../bin/stage';
 
 export interface ApiConstructProps {
   userPool: IUserPool;
@@ -22,6 +24,7 @@ export class ApiConstruct extends Construct {
 
     // add dynamo db table to store our todo
     const table = new Table(this, 'Table', {
+      tableName: TABLE_NAME,
       partitionKey: { name: 'PK', type: AttributeType.STRING },
       sortKey: { name: 'SK', type: AttributeType.STRING },
       billingMode: BillingMode.PAY_PER_REQUEST,
@@ -58,6 +61,20 @@ export class ApiConstruct extends Construct {
       },
       deployOptions: {
         stageName: 'v1',
+      },
+      defaultCorsPreflightOptions: {
+        allowHeaders: [
+          'Content-Type',
+          'X-Amz-Date',
+          'Authorization',
+          'X-Api-Key',
+          'Access-Control-Allow-Credentials',
+          'Access-Control-Allow-Headers',
+          'Impersonating-User-Sub',
+        ],
+        allowMethods: ['OPTIONS', 'GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
+        allowCredentials: true,
+        allowOrigins: Cors.ALL_ORIGINS,
       },
     });
 
